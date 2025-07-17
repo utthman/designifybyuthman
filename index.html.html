@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designify By Uthman | Professional Graphic Design Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rating-star {
+            color: #F59E0B;
+        }
+        
+        .order-form input,
+        .order-form textarea,
+        .order-form select {
+            transition: all 0.3s ease;
+        }
+        
+        .order-form input:focus,
+        .order-form textarea:focus,
+        .order-form select:focus {
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary">Designify<span class="text-secondary">ByUthman</span></a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-dark focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-dark hover:text-primary">Home</a>
+                    <a href="#services" class="nav-link text-dark hover:text-primary">Services</a>
+                    <a href="#portfolio" class="nav-link text-dark hover:text-primary">Portfolio</a>
+                    <a href="#testimonials" class="nav-link text-dark hover:text-primary">Reviews</a>
+                    <a href="#order" class="nav-link text-dark hover:text-primary">Order Now</a>
+                    <a href="#contact" class="nav-link text-dark hover:text-primary">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="#home" class="block py-2 text-dark hover:text-primary">Home</a>
+                <a href="#services" class="block py-2 text-dark hover:text-primary">Services</a>
+                <a href="#portfolio" class="block py-2 text-dark hover:text-primary">Portfolio</a>
+                <a href="#testimonials" class="block py-2 text-dark hover:text-primary">Reviews</a>
+                <a href="#order" class="block py-2 text-dark hover:text-primary">Order Now</a>
+                <a href="#contact" class="block py-2 text-dark hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Transform Your Vision Into Stunning Designs</h1>
+                <p class="text-xl mb-8">Professional graphic design services tailored to your brand's unique identity. Let's create something amazing together!</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#order" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 text-center">Order Now</a>
+                    <a href="#portfolio" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition duration-300 text-center">View Portfolio</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Design Work" class="rounded-lg shadow-2xl animate-bounce-slow w-full max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer a wide range of creative services to help your brand stand out in the digital world.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-paint-brush text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Graphic Design</h3>
+                    <p class="text-gray-600">Professional logo design, business cards, flyers, brochures, and all your branding needs.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-laptop-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Web Design</h3>
+                    <p class="text-gray-600">Beautiful, responsive websites that look great on all devices and help grow your business.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-mobile-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600">User-friendly interfaces that enhance user experience and engagement with your product.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-ad text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Social Media Design</h3>
+                    <p class="text-gray-600">Eye-catching social media posts, banners, and ads that increase your online presence.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-tshirt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Merchandise Design</h3>
+                    <p class="text-gray-600">Custom t-shirts, mugs, and other merchandise designs to promote your brand.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-edit text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Illustration</h3>
+                    <p class="text-gray-600">Custom illustrations and artwork tailored to your specific needs and style.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Portfolio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Browse through some of our recent work and see the quality we deliver.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Logo Design" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Brand Identity for TechStart</h3>
+                        <p class="text-gray-600 mb-4">Complete logo and branding package for a tech startup.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Logo Design</span>
+                            <div class="flex">
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Web Design" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">E-commerce Website</h3>
+                        <p class="text-gray-600 mb-4">Fully responsive online store for a fashion boutique.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Web Design</span>
+                            <div class="flex">
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star-half-alt rating-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c811329cf522?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Social Media" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Social Media Campaign</h3>
+                        <p class="text-gray-600 mb-4">Monthly social media content for a restaurant chain.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Social Media</span>
+                            <div class="flex">
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UI/UX Design" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Mobile App Interface</h3>
+                        <p class="text-gray-600 mb-4">User interface design for a fitness tracking application.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">UI/UX Design</span>
+                            <div class="flex">
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="far fa-star rating-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Print Design" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Business Stationery</h3>
+                        <p class="text-gray-600 mb-4">Complete business stationery package for a law firm.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Print Design</span>
+                            <div class="flex">
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Illustration" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Book Cover Illustration</h3>
+                        <p class="text-gray-600 mb-4">Custom illustration for a fantasy novel cover.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Illustration</span>
+                            <div class="flex">
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star rating-star"></i>
+                                <i class="fas fa-star-half-alt rating-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#order" class="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Client Testimonials</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our clients say about our work.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-light p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex mr-4">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                        </div>
+                        <span class="text-gray-600 text-sm">2 weeks ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Ibrahim transformed our brand identity completely. The logo and branding he created perfectly captured our company's vision. Highly recommended!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">CEO, TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-light p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex mr-4">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star-half-alt rating-star"></i>
+                        </div>
+                        <span class="text-gray-600 text-sm">1 month ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The website Designify created for our restaurant has significantly increased our online orders. The design is beautiful and user-friendly."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Adebayo" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Michael Adebayo</h4>
+                            <p class="text-gray-600 text-sm">Owner, Spice Garden</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-light p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex mr-4">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                        </div>
+                        <span class="text-gray-600 text-sm">3 months ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Working with Uthman was a pleasure. He understood exactly what we needed for our social media campaign and delivered beyond expectations."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Amina Yusuf" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Amina Yusuf</h4>
+                            <p class="text-gray-600 text-sm">Marketing Director, FashionHub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button id="add-review-btn" class="bg-secondary text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition duration-300">Add Your Review</button>
+                
+                <div id="review-form" class="hidden mt-8 max-w-2xl mx-auto bg-light p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-dark mb-6">Share Your Experience</h3>
+                    <form id="reviewForm">
+                        <div class="mb-6">
+                            <label for="review-name" class="block text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="review-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-6">
+                            <label for="review-role" class="block text-gray-700 mb-2">Your Role/Company</label>
+                            <input type="text" id="review-role" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Rating</label>
+                            <div class="flex space-x-2">
+                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="1"></i>
+                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="2"></i>
+                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="3"></i>
+                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="4"></i>
+                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="5"></i>
+                            </div>
+                            <input type="hidden" id="review-rating" value="0">
+                        </div>
+                        <div class="mb-6">
+                            <label for="review-text" class="block text-gray-700 mb-2">Your Review</label>
+                            <textarea id="review-text" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="button" id="cancel-review" class="mr-4 px-4 py-2 text-gray-600 hover:text-gray-800">Cancel</button>
+                            <button type="submit" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Submit Review</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-primary p-8 text-white flex items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+                            <p class="mb-6">Fill out the form and we'll get back to you within 24 hours to discuss your design needs.</p>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-phone-alt mr-3"></i>
+                                <span>0912 667 2972</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>designifybyuthman@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 order-form">
+                        <h3 class="text-2xl font-semibold text-dark mb-6">Place Your Order</h3>
+                        <form id="orderForm">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="service" class="block text-gray-700 mb-2">Service Needed</label>
+                                <select id="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                    <option value="">Select a service</option>
+                                    <option value="logo">Logo Design</option>
+                                    <option value="branding">Branding Package</option>
+                                    <option value="web">Website Design</option>
+                                    <option value="social">Social Media Design</option>
+                                    <option value="print">Print Design</option>
+                                    <option value="illustration">Illustration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="budget" class="block text-gray-700 mb-2">Budget Range</label>
+                                <select id="budget" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="10-50">₦10,000 -  ₦50,000</option>
+                                    <option value="50-100">₦50,000 -  ₦100,000</option>
+                                    <option value="100-200">₦100,000 -  ₦200,000</option>
+                                    <option value="200+">₦200,000+</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="details" class="block text-gray-700 mb-2">Project Details</label>
+                                <textarea id="details" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Submit Order</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Get In Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions or want to discuss your project? Reach out to us through any of these channels.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Contact Method 1 -->
+                <div class="bg-light p-8 rounded-lg shadow-md text-center">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-phone-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Call Us</h3>
+                    <p class="text-gray-600 mb-4">Available Monday to Friday, 9am to 5pm</p>
+                    <a href="tel:2349126672972" class="text-primary font-medium hover:underline">0912 667 2972</a>
+                </div>
+                
+                <!-- Contact Method 2 -->
+                <div class="bg-light p-8 rounded-lg shadow-md text-center">
+                    <div class="text-primary mb-4">
+                        <i class="fab fa-whatsapp text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Chat with us anytime</p>
+                    <a href="https://wa.me/2349126672972" target="_blank" class="text-primary font-medium hover:underline">+234 912 667 2972</a>
+                </div>
+                
+                <!-- Contact Method 3 -->
+                <div class="bg-light p-8 rounded-lg shadow-md text-center">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Email Us</h3>
+                    <p class="text-gray-600 mb-4">We'll respond within 24 hours</p>
+                    <a href="mailto:designifybyuthman@gmail.com" class="text-primary font-medium hover:underline">designifybyuthman@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-semibold text-dark mb-6 text-center">Visit Our Studio</h3>
+                <div class="bg-light p-6 rounded-lg shadow-md">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/2 mb-6 md:mb-0">
+                            <h4 class="text-lg font-medium text-dark mb-3">Designify By Uthman</h4>
+                            <p class="text-gray-600 mb-2">Lagos, Nigeria</p>
+                            <p class="text-gray-600">By appointment only</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.585502144428!2d3.379295414266313!3d6.453326325540013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1629297217975!5m2!1sen!2sng" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Designify<span class="text-secondary">ByUthman</span></h3>
+                    <p class="text-gray-400">Transforming visions into stunning visual realities through professional design services.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+                        <li><a href="#order" class="text-gray-400 hover:text-white transition duration-300">Order Now</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Graphic Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/2349126672972" target="_blank" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="text-gray-400">Email: designifybyuthman@gmail.com</p>
+                    <p class="text-gray-400">Phone: 0912 667 2972</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Designify By Uthman. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dark transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-dark mb-2">Thank You!</h3>
+                <p class="text-gray-600 mb-6" id="success-message">Your order has been submitted successfully. We'll contact you within 24 hours.</p>
+                <button id="close-modal" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            var backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Review form toggle
+        document.getElementById('add-review-btn').addEventListener('click', function() {
+            document.getElementById('review-form').classList.remove('hidden');
+            this.classList.add('hidden');
+        });
+
+        document.getElementById('cancel-review').addEventListener('click', function() {
+            document.getElementById('review-form').classList.add('hidden');
+            document.getElementById('add-review-btn').classList.remove('hidden');
+        });
+
+        // Star rating for review form
+        const stars = document.querySelectorAll('.rating-star[data-rating]');
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                document.getElementById('review-rating').value = rating;
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the form data to your server
+            // For demo purposes, we'll just show a success message
+            document.getElementById('success-modal').classList.remove('hidden');
+        });
+
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the review data to your server
+            // For demo purposes, we'll just show a success message and reset the form
+            document.getElementById('success-message').textContent = 'Thank you for your review! Your feedback helps us improve our services.';
+            document.getElementById('success-modal').classList.remove('hidden');
+            this.reset();
+            
+            // Reset stars
+            stars.forEach(star => {
+                star.classList.remove('fas');
+                star.classList.add('far');
+            });
+            document.getElementById('review-rating').value = 0;
+            
+            // Hide review form after submission
+            document.getElementById('review-form').classList.add('hidden');
+            document.getElementById('add-review-btn').classList.remove('hidden');
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('success-modal').classList.add('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

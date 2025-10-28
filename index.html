@@ -3,596 +3,1116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designify By Uthman | Professional Graphic Design Services</title>
+    <title>DESIGNIFYBYUTHMAN - Professional Graphic & Web Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4F46E5',
-                        secondary: '#10B981',
-                        dark: '#1F2937',
-                        light: '#F9FAFB',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
-                }
+    <style>
+        body {
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        
+        /* Responsive Button Animations */
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            25% { transform: scale(1.05) rotate(1deg); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+            50% { transform: scale(1.1) rotate(0deg); box-shadow: 0 0 40px rgba(59, 130, 246, 0.7); }
+            75% { transform: scale(1.05) rotate(-1deg); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+        }
+        
+        @keyframes buttonBounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            25% { transform: translateY(-5px) scale(1.02); }
+            50% { transform: translateY(-10px) scale(1.05); }
+            75% { transform: translateY(-5px) scale(1.02); }
+        }
+        
+        @keyframes buttonWiggle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(2deg) scale(1.02); }
+            50% { transform: rotate(-2deg) scale(1.05); }
+            75% { transform: rotate(1deg) scale(1.02); }
+        }
+        
+        .btn-animated {
+            animation: buttonPulse 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-animated:hover {
+            animation: buttonBounce 0.6s ease-in-out infinite;
+            transform: scale(1.1);
+        }
+        
+        .btn-wiggle {
+            animation: buttonWiggle 2s ease-in-out infinite;
+        }
+        
+        /* Video-like Background Animation */
+        @keyframes videoBackground {
+            0% { 
+                background: linear-gradient(45deg, #000000 0%, #1e3a8a 25%, #3b82f6 50%, #1e3a8a 75%, #000000 100%);
+                background-size: 400% 400%;
+                background-position: 0% 50%;
+            }
+            25% { 
+                background-position: 100% 50%;
+            }
+            50% { 
+                background: linear-gradient(135deg, #1e40af 0%, #3b82f6 25%, #000000 50%, #1e3a8a 75%, #3b82f6 100%);
+                background-size: 400% 400%;
+                background-position: 50% 100%;
+            }
+            75% { 
+                background-position: 50% 0%;
+            }
+            100% { 
+                background: linear-gradient(225deg, #3b82f6 0%, #000000 25%, #1e40af 50%, #3b82f6 75%, #000000 100%);
+                background-size: 400% 400%;
+                background-position: 0% 50%;
             }
         }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .portfolio-item {
-            transition: all 0.3s ease;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .rating-star {
-            color: #F59E0B;
-        }
-        
-        .order-form input,
-        .order-form textarea,
-        .order-form select {
-            transition: all 0.3s ease;
-        }
-        
-        .order-form input:focus,
-        .order-form textarea:focus,
-        .order-form select:focus {
-            border-color: #4F46E5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-        }
-        
-        .nav-link {
+        .video-bg {
+            animation: videoBackground 8s ease-in-out infinite;
             position: relative;
         }
         
-        .nav-link::after {
-            content: '';
+        .video-bg::before {
+            content: 'DESIGNIFYBYUTHMAN';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #4F46E5;
-            transition: width 0.3s ease;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(2rem, 8vw, 6rem);
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+            animation: textFloat 6s ease-in-out infinite;
+            white-space: nowrap;
         }
         
-        .nav-link:hover::after {
-            width: 100%;
+        @keyframes textFloat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0.05; }
+            50% { transform: translate(-50%, -50%) scale(1.1) rotate(2deg); opacity: 0.1; }
         }
         
-        .animate-bounce-slow {
-            animation: bounce 3s infinite;
+        /* Insect-like Moving Button */
+        .insect-btn {
+            position: fixed;
+            z-index: 9999;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: insectMove 15s linear infinite, insectColors 3s ease-in-out infinite;
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: bold;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
-        @keyframes bounce {
-            0%, 100% {
+        @keyframes insectMove {
+            0% { top: 20%; left: 10%; transform: rotate(0deg) scale(1); }
+            10% { top: 30%; left: 80%; transform: rotate(45deg) scale(1.1); }
+            20% { top: 60%; left: 70%; transform: rotate(90deg) scale(0.9); }
+            30% { top: 80%; left: 20%; transform: rotate(135deg) scale(1.2); }
+            40% { top: 70%; left: 5%; transform: rotate(180deg) scale(1); }
+            50% { top: 40%; left: 30%; transform: rotate(225deg) scale(1.1); }
+            60% { top: 15%; left: 60%; transform: rotate(270deg) scale(0.8); }
+            70% { top: 25%; left: 90%; transform: rotate(315deg) scale(1.3); }
+            80% { top: 55%; left: 85%; transform: rotate(360deg) scale(1); }
+            90% { top: 75%; left: 40%; transform: rotate(45deg) scale(1.1); }
+            100% { top: 20%; left: 10%; transform: rotate(0deg) scale(1); }
+        }
+        
+        @keyframes insectColors {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .insect-btn:hover {
+            animation-play-state: paused;
+            transform: scale(1.3) !important;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.8);
+        }
+        
+        /* Floating Elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
-            50% {
-                transform: translateY(-15px);
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #000000 0%, #1e3a8a 50%, #3b82f6 100%);
+        }
+        
+        .black-blue-bg {
+            background: linear-gradient(135deg, #000000 0%, #1e40af 100%);
+        }
+        
+        .floating-screen {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.1);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            animation: floatScreen 6s ease-in-out infinite;
+        }
+        
+        .floating-screen-1 {
+            width: clamp(150px, 20vw, 200px);
+            height: clamp(90px, 12vw, 120px);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-screen-2 {
+            width: clamp(120px, 15vw, 150px);
+            height: clamp(70px, 9vw, 90px);
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .floating-screen-3 {
+            width: clamp(140px, 18vw, 180px);
+            height: clamp(80px, 10vw, 100px);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        .floating-screen-4 {
+            width: clamp(130px, 16vw, 160px);
+            height: clamp(75px, 9.5vw, 95px);
+            bottom: 30%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes floatScreen {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-20px) rotate(2deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-40px) rotate(0deg);
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-20px) rotate(-2deg);
+                opacity: 0.8;
+            }
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .screen-content {
+            padding: 8px;
+            color: #3b82f6;
+            font-size: clamp(8px, 1vw, 10px);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .star-rating {
+            color: #fbbf24;
+        }
+        
+        /* Project Image Styles */
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .insect-btn {
+                padding: 4px 8px;
+                font-size: 0.6rem;
+            }
+            
+            .floating-screen {
+                display: none;
+            }
+            
+            .video-bg::before {
+                font-size: 2rem;
+            }
+            
+            /* Make all buttons responsive */
+            .btn-animated, .btn-wiggle, button, .floating-btn {
+                padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+                font-size: clamp(0.7rem, 2vw, 1rem);
+            }
+            
+            .grid button {
+                padding: clamp(6px, 1.5vw, 12px) clamp(8px, 2vw, 16px);
+                font-size: clamp(0.6rem, 1.8vw, 0.9rem);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .insect-btn {
+                padding: 3px 6px;
+                font-size: 0.5rem;
+            }
+            
+            /* Extra small screen button adjustments */
+            .btn-animated, .btn-wiggle, button, .floating-btn {
+                padding: clamp(6px, 2vw, 10px) clamp(8px, 3vw, 16px);
+                font-size: clamp(0.6rem, 2.2vw, 0.8rem);
+            }
+            
+            .grid button {
+                padding: clamp(4px, 1.5vw, 8px) clamp(6px, 2vw, 12px);
+                font-size: clamp(0.5rem, 2vw, 0.7rem);
+            }
+            
+            .floating-btn {
+                width: clamp(40px, 10vw, 56px);
+                height: clamp(40px, 10vw, 56px);
+                padding: clamp(8px, 2vw, 12px);
+            }
+            
+            .floating-btn svg {
+                width: clamp(16px, 4vw, 24px);
+                height: clamp(16px, 4vw, 24px);
             }
         }
     </style>
 </head>
-<body class="bg-light">
+<body class="ocean-bg">
+    <!-- Insect-like Moving Button -->
+    <div class="insect-btn" onclick="scrollToSection('contact')">
+        🚀 BUILD YOUR BRAND WITH US
+    </div>
+    
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="floating-btn bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 btn-animated">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+    
+    <button onclick="scrollToTop()" class="floating-btn bottom-24 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 btn-wiggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+    
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="floating-btn bottom-40 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 btn-animated">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+    </button>
+
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-primary">Designify<span class="text-secondary">ByUthman</span></a>
+    <nav class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">DESIGNIFYBYUTHMAN</h1>
+                <div class="hidden md:flex space-x-6">
+                    <button onclick="scrollToSection('home')" class="hover:text-purple-200 transition">Home</button>
+                    <button onclick="scrollToSection('services')" class="hover:text-purple-200 transition">Services</button>
+                    <button onclick="scrollToSection('portfolio')" class="hover:text-purple-200 transition">Portfolio</button>
+                    <button onclick="scrollToSection('reviews')" class="hover:text-purple-200 transition">Reviews</button>
+                    <button onclick="scrollToSection('contact')" class="hover:text-purple-200 transition">Contact</button>
                 </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-dark focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-dark hover:text-primary">Home</a>
-                    <a href="#services" class="nav-link text-dark hover:text-primary">Services</a>
-                    <a href="#portfolio" class="nav-link text-dark hover:text-primary">Portfolio</a>
-                    <a href="#testimonials" class="nav-link text-dark hover:text-primary">Reviews</a>
-                    <a href="#order" class="nav-link text-dark hover:text-primary">Order Now</a>
-                    <a href="#contact" class="nav-link text-dark hover:text-primary">Contact</a>
-                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden py-4">
-                <a href="#home" class="block py-2 text-dark hover:text-primary">Home</a>
-                <a href="#services" class="block py-2 text-dark hover:text-primary">Services</a>
-                <a href="#portfolio" class="block py-2 text-dark hover:text-primary">Portfolio</a>
-                <a href="#testimonials" class="block py-2 text-dark hover:text-primary">Reviews</a>
-                <a href="#order" class="block py-2 text-dark hover:text-primary">Order Now</a>
-                <a href="#contact" class="block py-2 text-dark hover:text-primary">Contact</a>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+                <button onclick="scrollToSection('home')" class="block w-full text-left py-2 hover:text-purple-200">Home</button>
+                <button onclick="scrollToSection('services')" class="block w-full text-left py-2 hover:text-purple-200">Services</button>
+                <button onclick="scrollToSection('portfolio')" class="block w-full text-left py-2 hover:text-purple-200">Portfolio</button>
+                <button onclick="scrollToSection('reviews')" class="block w-full text-left py-2 hover:text-purple-200">Reviews</button>
+                <button onclick="scrollToSection('contact')" class="block w-full text-left py-2 hover:text-purple-200">Contact</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Transform Your Vision Into Stunning Designs</h1>
-                <p class="text-xl mb-8">Professional graphic design services tailored to your brand's unique identity. Let's create something amazing together!</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#order" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 text-center">Order Now</a>
-                    <a href="#portfolio" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition duration-300 text-center">View Portfolio</a>
+    <section id="home" class="gradient-bg text-white py-20 relative overflow-hidden min-h-screen flex items-center">
+        <!-- Professional Live Screens -->
+        <div class="floating-screen floating-screen-1">
+            <div class="flex items-center justify-between p-2 border-b border-blue-400">
+                <div class="live-dot"></div>
+                <span class="text-xs text-blue-400 font-mono">LIVE</span>
+            </div>
+            <div class="screen-content">
+                <div>E-Commerce Platform</div>
+                <div>Client: TechCorp Ltd</div>
+                <div>Progress: 92%</div>
+            </div>
+        </div>
+        
+        <div class="floating-screen floating-screen-2">
+            <div class="flex items-center justify-between p-2 border-b border-blue-400">
+                <div class="live-dot"></div>
+                <span class="text-xs text-blue-400 font-mono">LIVE</span>
+            </div>
+            <div class="screen-content">
+                <div>Corporate Identity</div>
+                <div>Client: FinanceHub</div>
+                <div>Finalizing Assets</div>
+            </div>
+        </div>
+        
+        <div class="floating-screen floating-screen-3">
+            <div class="flex items-center justify-between p-2 border-b border-blue-400">
+                <div class="live-dot"></div>
+                <span class="text-xs text-blue-400 font-mono">LIVE</span>
+            </div>
+            <div class="screen-content">
+                <div>Mobile App UI</div>
+                <div>Client: StartupXYZ</div>
+                <div>Design Review</div>
+            </div>
+        </div>
+        
+        <div class="floating-screen floating-screen-4">
+            <div class="flex items-center justify-between p-2 border-b border-blue-400">
+                <div class="live-dot"></div>
+                <span class="text-xs text-blue-400 font-mono">LIVE</span>
+            </div>
+            <div class="screen-content">
+                <div>Marketing Campaign</div>
+                <div>Client: RetailPro</div>
+                <div>Asset Creation</div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="float-animation">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">PROFESSIONAL DESIGN STUDIO</h2>
+                <p class="text-lg md:text-xl mb-6 text-blue-200">Enterprise-Grade Design Solutions | Custom Development | Strategic Branding</p>
+                <div class="bg-black bg-opacity-30 backdrop-blur-sm rounded-lg p-4 mb-8 inline-block">
+                    <p class="text-sm text-blue-300">Trusted by 500+ Businesses Across Nigeria</p>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Design Work" class="rounded-lg shadow-2xl animate-bounce-slow w-full max-w-md">
+            
+            <!-- Professional Action Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto">
+                <button onclick="scrollToSection('portfolio')" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg transition-all">
+                    <div class="text-sm">VIEW</div>
+                    <div class="text-xs opacity-80">Portfolio</div>
+                </button>
+                <button onclick="scrollToSection('services')" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg transition-all border border-blue-400">
+                    <div class="text-sm">EXPLORE</div>
+                    <div class="text-xs opacity-80">Services</div>
+                </button>
+                <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg transition-all">
+                    <div class="text-sm">START</div>
+                    <div class="text-xs opacity-80">Project</div>
+                </button>
+                <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg transition-all">
+                    <div class="text-sm">CONSULT</div>
+                    <div class="text-xs opacity-80">WhatsApp</div>
+                </a>
+            </div>
+            
+            <!-- Quick Access Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mt-6">
+                <button onclick="scrollToSection('reviews')" class="bg-black bg-opacity-40 hover:bg-opacity-60 text-white px-4 py-2 rounded-full text-sm font-medium hover-scale transition-all border border-blue-400">Client Reviews</button>
+                <button onclick="scrollToSection('pricing')" class="bg-black bg-opacity-40 hover:bg-opacity-60 text-white px-4 py-2 rounded-full text-sm font-medium hover-scale transition-all border border-blue-400">Pricing Plans</button>
+                <button onclick="scrollToSection('process')" class="bg-black bg-opacity-40 hover:bg-opacity-60 text-white px-4 py-2 rounded-full text-sm font-medium hover-scale transition-all border border-blue-400">Our Process</button>
+                <button onclick="scrollToSection('team')" class="bg-black bg-opacity-40 hover:bg-opacity-60 text-white px-4 py-2 rounded-full text-sm font-medium hover-scale transition-all border border-blue-400">Meet Team</button>
+            </div>
+            
+            <div class="mt-8 flex items-center justify-center space-x-6 text-sm text-blue-200">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span>Available Now</span>
+                </div>
+                <div>|</div>
+                <div>📍 Lagos, Nigeria</div>
+                <div>|</div>
+                <div>⚡ 24/7 Support</div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 ocean-depth">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Services</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">We offer a wide range of creative services to help your brand stand out in the digital world.</p>
+                <h2 class="text-4xl font-bold mb-4 text-white">PROFESSIONAL SERVICES</h2>
+                <p class="text-blue-200 text-lg mb-8">Enterprise-Level Solutions for Modern Businesses</p>
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium hover-scale">Get Quote</button>
+                    <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium hover-scale">Consult Now</a>
+                    <button onclick="scrollToSection('portfolio')" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-medium hover-scale">View Work</button>
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-paint-brush text-4xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-8 rounded-2xl text-white hover-scale shadow-xl border border-purple-400">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold mb-4">Graphic Design</h3>
+                    <p class="mb-6 text-sm opacity-90">Logo design, branding, flyers, posters, and all visual content creation</p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Starting from</span>
+                            <span class="font-bold">₦15,000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Delivery</span>
+                            <span class="font-bold">2-3 Days</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-3">Graphic Design</h3>
-                    <p class="text-gray-600">Professional logo design, business cards, flyers, brochures, and all your branding needs.</p>
+                    <div class="flex gap-2">
+                        <button onclick="scrollToSection('contact')" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover-scale flex-1 text-sm btn-animated">Order Now</button>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold hover-scale text-sm btn-wiggle">Chat</a>
+                    </div>
                 </div>
                 
-                <!-- Service 2 -->
-                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-laptop-code text-4xl"></i>
+                <div class="bg-gradient-to-br from-blue-500 to-cyan-500 p-8 rounded-2xl text-white hover-scale shadow-xl border border-blue-400">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                    <p class="mb-6 text-sm opacity-90">Professional websites, landing pages, and web applications</p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Starting from</span>
+                            <span class="font-bold">₦50,000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Delivery</span>
+                            <span class="font-bold">5-7 Days</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-3">Web Design</h3>
-                    <p class="text-gray-600">Beautiful, responsive websites that look great on all devices and help grow your business.</p>
+                    <div class="flex gap-2">
+                        <button onclick="scrollToSection('contact')" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover-scale flex-1 text-sm btn-wiggle">Order Now</button>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold hover-scale text-sm btn-animated">Chat</a>
+                    </div>
                 </div>
                 
-                <!-- Service 3 -->
-                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-mobile-alt text-4xl"></i>
+                <div class="bg-gradient-to-br from-orange-500 to-red-500 p-8 rounded-2xl text-white hover-scale shadow-xl border border-orange-400">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4">Brand Identity</h3>
+                    <p class="mb-6 text-sm opacity-90">Complete branding packages and visual identity systems</p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Starting from</span>
+                            <span class="font-bold">₦35,000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Delivery</span>
+                            <span class="font-bold">3-5 Days</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-3">UI/UX Design</h3>
-                    <p class="text-gray-600">User-friendly interfaces that enhance user experience and engagement with your product.</p>
+                    <div class="flex gap-2">
+                        <button onclick="scrollToSection('contact')" class="bg-white text-orange-600 px-4 py-2 rounded-lg font-semibold hover-scale flex-1 text-sm btn-animated">Order Now</button>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold hover-scale text-sm btn-wiggle">Chat</a>
+                    </div>
                 </div>
                 
-                <!-- Service 4 -->
-                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-ad text-4xl"></i>
+                <div class="bg-gradient-to-br from-green-500 to-teal-500 p-8 rounded-2xl text-white hover-scale shadow-xl border border-green-400">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-4">Social Media Design</h3>
+                    <p class="mb-6 text-sm opacity-90">Eye-catching posts, stories, and social media graphics</p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Starting from</span>
+                            <span class="font-bold">₦10,000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Delivery</span>
+                            <span class="font-bold">1-2 Days</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-3">Social Media Design</h3>
-                    <p class="text-gray-600">Eye-catching social media posts, banners, and ads that increase your online presence.</p>
+                    <div class="flex gap-2">
+                        <button onclick="scrollToSection('contact')" class="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover-scale flex-1 text-sm btn-wiggle">Order Now</button>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-green-700 text-white px-4 py-2 rounded-lg font-semibold hover-scale text-sm btn-animated">Chat</a>
+                    </div>
                 </div>
                 
-                <!-- Service 5 -->
-                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-tshirt text-4xl"></i>
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-500 p-8 rounded-2xl text-white hover-scale shadow-xl border border-indigo-400">
+                    <div class="text-4xl mb-4">🖼️</div>
+                    <h3 class="text-2xl font-bold mb-4">Print Design</h3>
+                    <p class="mb-6 text-sm opacity-90">Business cards, brochures, banners, and print materials</p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Starting from</span>
+                            <span class="font-bold">₦8,000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Delivery</span>
+                            <span class="font-bold">1-3 Days</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-3">Merchandise Design</h3>
-                    <p class="text-gray-600">Custom t-shirts, mugs, and other merchandise designs to promote your brand.</p>
+                    <div class="flex gap-2">
+                        <button onclick="scrollToSection('contact')" class="bg-white text-indigo-600 px-4 py-2 rounded-lg font-semibold hover-scale flex-1 text-sm btn-animated">Order Now</button>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-indigo-700 text-white px-4 py-2 rounded-lg font-semibold hover-scale text-sm btn-wiggle">Chat</a>
+                    </div>
                 </div>
                 
-                <!-- Service 6 -->
-                <div class="bg-light p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-edit text-4xl"></i>
+                <div class="bg-gradient-to-br from-yellow-500 to-orange-500 p-8 rounded-2xl text-white hover-scale shadow-xl border border-yellow-400">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="mb-6 text-sm opacity-90">User interface and experience design for apps and websites</p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Starting from</span>
+                            <span class="font-bold">₦40,000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Delivery</span>
+                            <span class="font-bold">4-6 Days</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-3">Illustration</h3>
-                    <p class="text-gray-600">Custom illustrations and artwork tailored to your specific needs and style.</p>
+                    <div class="flex gap-2">
+                        <button onclick="scrollToSection('contact')" class="bg-white text-yellow-600 px-4 py-2 rounded-lg font-semibold hover-scale flex-1 text-sm btn-wiggle">Order Now</button>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold hover-scale text-sm btn-animated">Chat</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Action Center -->
+            <div class="mt-16 bg-gray-900 rounded-2xl p-8 border border-blue-500">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Need Custom Solutions?</h3>
+                    <p class="text-gray-400 mb-6">We create tailored design and development solutions for unique business needs</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold hover-scale text-sm">
+                        <div>REQUEST</div>
+                        <div class="text-xs opacity-80">Custom Quote</div>
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-semibold hover-scale text-sm">
+                        <div>DISCUSS</div>
+                        <div class="text-xs opacity-80">Your Project</div>
+                    </button>
+                    <button onclick="scrollToSection('portfolio')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg font-semibold hover-scale text-sm">
+                        <div>VIEW</div>
+                        <div class="text-xs opacity-80">Past Work</div>
+                    </button>
+                    <button onclick="scrollToSection('reviews')" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-semibold hover-scale text-sm">
+                        <div>READ</div>
+                        <div class="text-xs opacity-80">Reviews</div>
+                    </button>
+                    <button onclick="scrollToSection('pricing')" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-semibold hover-scale text-sm">
+                        <div>CHECK</div>
+                        <div class="text-xs opacity-80">Pricing</div>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
+    <section id="portfolio" class="py-20 ocean-depth">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Portfolio</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Browse through some of our recent work and see the quality we deliver.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Logo Design" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Brand Identity for TechStart</h3>
-                        <p class="text-gray-600 mb-4">Complete logo and branding package for a tech startup.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-primary font-medium">Logo Design</span>
-                            <div class="flex">
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Web Design" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">E-commerce Website</h3>
-                        <p class="text-gray-600 mb-4">Fully responsive online store for a fashion boutique.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-primary font-medium">Web Design</span>
-                            <div class="flex">
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star-half-alt rating-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c811329cf522?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Social Media" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Social Media Campaign</h3>
-                        <p class="text-gray-600 mb-4">Monthly social media content for a restaurant chain.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-primary font-medium">Social Media</span>
-                            <div class="flex">
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 4 -->
-                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UI/UX Design" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Mobile App Interface</h3>
-                        <p class="text-gray-600 mb-4">User interface design for a fitness tracking application.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-primary font-medium">UI/UX Design</span>
-                            <div class="flex">
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="far fa-star rating-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 5 -->
-                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Print Design" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Business Stationery</h3>
-                        <p class="text-gray-600 mb-4">Complete business stationery package for a law firm.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-primary font-medium">Print Design</span>
-                            <div class="flex">
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 6 -->
-                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Illustration" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Book Cover Illustration</h3>
-                        <p class="text-gray-600 mb-4">Custom illustration for a fantasy novel cover.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-primary font-medium">Illustration</span>
-                            <div class="flex">
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star rating-star"></i>
-                                <i class="fas fa-star-half-alt rating-star"></i>
-                            </div>
-                        </div>
-                    </div>
+                <h2 class="text-4xl font-bold mb-4 text-white">FEATURED PROJECTS</h2>
+                <p class="text-blue-200 text-lg mb-8">Showcasing Excellence in Design & Development</p>
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <button onclick="filterPortfolio('all')" class="portfolio-filter bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium hover-scale">All Projects</button>
+                    <button onclick="filterPortfolio('web')" class="portfolio-filter bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full text-sm font-medium hover-scale">Websites</button>
+                    <button onclick="filterPortfolio('branding')" class="portfolio-filter bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full text-sm font-medium hover-scale">Branding</button>
+                    <button onclick="filterPortfolio('mobile')" class="portfolio-filter bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full text-sm font-medium hover-scale">Mobile Apps</button>
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <a href="#order" class="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Start Your Project</a>
+            <!-- Professional Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Project 1 -->
+                <div class="portfolio-item web bg-gray-900 rounded-xl overflow-hidden hover-scale shadow-xl border border-blue-500">
+                    <div class="project-image bg-gradient-to-br from-blue-600 to-purple-600 h-48 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="text-center text-white relative z-10">
+                            <div class="text-4xl mb-2 animate-bounce">🏢</div>
+                            <div class="text-lg font-bold">TechCorp Website</div>
+                            <div class="text-xs opacity-75 mt-1">Modern Corporate Design</div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">LIVE</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-2">Corporate Website Redesign</h3>
+                        <p class="text-gray-400 text-sm mb-4">Complete website overhaul for leading tech company with modern UI/UX</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 text-sm font-medium">Web Development</span>
+                            <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium btn-animated">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item branding bg-gray-900 rounded-xl overflow-hidden hover-scale shadow-xl border border-blue-500">
+                    <div class="project-image bg-gradient-to-br from-green-600 to-teal-600 h-48 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="text-center text-white relative z-10">
+                            <div class="text-4xl mb-2 animate-pulse">🎯</div>
+                            <div class="text-lg font-bold">FinanceHub Brand</div>
+                            <div class="text-xs opacity-75 mt-1">Complete Identity Package</div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold">FEATURED</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-2">Complete Brand Identity</h3>
+                        <p class="text-gray-400 text-sm mb-4">Logo design, brand guidelines, and marketing materials for fintech startup</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-400 text-sm font-medium">Brand Identity</span>
+                            <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium btn-wiggle">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item mobile bg-gray-900 rounded-xl overflow-hidden hover-scale shadow-xl border border-blue-500">
+                    <div class="project-image bg-gradient-to-br from-purple-600 to-pink-600 h-48 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="text-center text-white relative z-10">
+                            <div class="text-4xl mb-2 animate-spin" style="animation-duration: 3s;">📱</div>
+                            <div class="text-lg font-bold">RetailPro App</div>
+                            <div class="text-xs opacity-75 mt-1">Mobile E-Commerce</div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-2">E-Commerce Mobile App</h3>
+                        <p class="text-gray-400 text-sm mb-4">iOS/Android app design with seamless shopping experience</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-purple-400 text-sm font-medium">Mobile UI/UX</span>
+                            <button onclick="scrollToSection('contact')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium btn-animated">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item web bg-gray-900 rounded-xl overflow-hidden hover-scale shadow-xl border border-blue-500">
+                    <div class="project-image bg-gradient-to-br from-orange-600 to-red-600 h-48 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="text-center text-white relative z-10">
+                            <div class="text-4xl mb-2 animate-bounce">🏥</div>
+                            <div class="text-lg font-bold">MedCare Portal</div>
+                            <div class="text-xs opacity-75 mt-1">Healthcare System</div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">NEW</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-2">Healthcare Management System</h3>
+                        <p class="text-gray-400 text-sm mb-4">Patient management portal with appointment booking system</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-orange-400 text-sm font-medium">Web Application</span>
+                            <button onclick="scrollToSection('contact')" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-medium btn-wiggle">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="portfolio-item branding bg-gray-900 rounded-xl overflow-hidden hover-scale shadow-xl border border-blue-500">
+                    <div class="project-image bg-gradient-to-br from-indigo-600 to-blue-600 h-48 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="text-center text-white relative z-10">
+                            <div class="text-4xl mb-2 animate-pulse">🍕</div>
+                            <div class="text-lg font-bold">FoodieHub Brand</div>
+                            <div class="text-xs opacity-75 mt-1">Restaurant Branding</div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">POPULAR</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-2">Restaurant Chain Branding</h3>
+                        <p class="text-gray-400 text-sm mb-4">Logo, menu design, and marketing materials for restaurant chain</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-indigo-400 text-sm font-medium">Brand Design</span>
+                            <button onclick="scrollToSection('contact')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium btn-animated">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="portfolio-item web bg-gray-900 rounded-xl overflow-hidden hover-scale shadow-xl border border-blue-500">
+                    <div class="project-image bg-gradient-to-br from-teal-600 to-green-600 h-48 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="text-center text-white relative z-10">
+                            <div class="text-4xl mb-2 animate-bounce">🎓</div>
+                            <div class="text-lg font-bold">EduPlatform</div>
+                            <div class="text-xs opacity-75 mt-1">Learning Management</div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold">TRENDING</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-2">Online Learning Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">Educational platform with course management and video streaming</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-teal-400 text-sm font-medium">EdTech Platform</span>
+                            <button onclick="scrollToSection('contact')" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-medium btn-wiggle">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="text-center">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+                    <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg">
+                        <div class="text-sm">START</div>
+                        <div class="text-xs opacity-80">New Project</div>
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg">
+                        <div class="text-sm">DISCUSS</div>
+                        <div class="text-xs opacity-80">Your Ideas</div>
+                    </button>
+                    <button onclick="scrollToSection('services')" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg">
+                        <div class="text-sm">EXPLORE</div>
+                        <div class="text-xs opacity-80">All Services</div>
+                    </button>
+                    <button onclick="scrollToSection('pricing')" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold hover-scale shadow-lg">
+                        <div class="text-sm">VIEW</div>
+                        <div class="text-xs opacity-80">Pricing</div>
+                    </button>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl p-6 max-w-2xl mx-auto border border-blue-500">
+                    <h3 class="text-white font-bold text-lg mb-2">Ready to Start Your Project?</h3>
+                    <p class="text-gray-400 mb-4">Join 500+ satisfied clients who trust DESIGNIFYBYUTHMAN for their design needs</p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium">Get Free Quote</button>
+                        <button onclick="scrollToSection('reviews')" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-medium">Read Reviews</button>
+                        <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium">Contact Now</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
+    <!-- Process Section -->
+    <section id="process" class="py-20 ocean-bg">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white">OUR DESIGN PROCESS</h2>
+                <p class="text-blue-200 text-lg mb-8">From Concept to Completion - How We Bring Your Vision to Life</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-900 p-6 rounded-xl border border-blue-500 hover-scale">
+                    <div class="text-4xl mb-4 text-center animate-bounce">💡</div>
+                    <h3 class="text-white font-bold text-lg mb-3 text-center">1. Discovery</h3>
+                    <p class="text-gray-400 text-sm text-center mb-4">We understand your brand, goals, and target audience</p>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium btn-animated">Learn More</button>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500 hover-scale">
+                    <div class="text-4xl mb-4 text-center animate-pulse">🎨</div>
+                    <h3 class="text-white font-bold text-lg mb-3 text-center">2. Design</h3>
+                    <p class="text-gray-400 text-sm text-center mb-4">Creative concepts and mockups tailored to your vision</p>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium btn-wiggle">Learn More</button>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-xl border border-purple-500 hover-scale">
+                    <div class="text-4xl mb-4 text-center animate-spin" style="animation-duration: 3s;">⚙️</div>
+                    <h3 class="text-white font-bold text-lg mb-3 text-center">3. Development</h3>
+                    <p class="text-gray-400 text-sm text-center mb-4">Bringing designs to life with cutting-edge technology</p>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-medium btn-animated">Learn More</button>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-xl border border-orange-500 hover-scale">
+                    <div class="text-4xl mb-4 text-center animate-bounce">🚀</div>
+                    <h3 class="text-white font-bold text-lg mb-3 text-center">4. Launch</h3>
+                    <p class="text-gray-400 text-sm text-center mb-4">Final delivery and ongoing support for your success</p>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg font-medium btn-wiggle">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 ocean-depth">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Client Testimonials</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our clients say about our work.</p>
+                <h2 class="text-4xl font-bold mb-4 text-white">TRANSPARENT PRICING</h2>
+                <p class="text-blue-200 text-lg mb-8">Professional Design Services at Competitive Rates</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-light p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="flex mr-4">
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                        </div>
-                        <span class="text-gray-600 text-sm">2 weeks ago</span>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gray-900 p-8 rounded-xl border border-blue-500 hover-scale">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">STARTER</h3>
+                        <div class="text-4xl font-bold text-blue-400 mb-2">₦15,000</div>
+                        <p class="text-gray-400">Perfect for small businesses</p>
                     </div>
-                    <p class="text-gray-700 mb-6">"Ibrahim transformed our brand identity completely. The logo and branding he created perfectly captured our company's vision. Highly recommended!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark">Sarah Johnson</h4>
-                            <p class="text-gray-600 text-sm">CEO, TechSolutions</p>
-                        </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Logo Design</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Business Card</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> 3 Revisions</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> 2-3 Days Delivery</li>
+                    </ul>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold btn-animated">Get Started</button>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl border-2 border-green-500 hover-scale relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold">POPULAR</div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">PROFESSIONAL</h3>
+                        <div class="text-4xl font-bold text-green-400 mb-2">₦35,000</div>
+                        <p class="text-gray-400">Complete brand package</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Complete Branding</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Website Design</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Social Media Kit</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Unlimited Revisions</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> 5-7 Days Delivery</li>
+                    </ul>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold btn-wiggle">Get Started</button>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl border border-purple-500 hover-scale">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">ENTERPRISE</h3>
+                        <div class="text-4xl font-bold text-purple-400 mb-2">₦75,000+</div>
+                        <p class="text-gray-400">Custom solutions</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Everything in Pro</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Web Development</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Mobile App Design</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Priority Support</li>
+                        <li class="text-gray-300 flex items-center"><span class="text-green-400 mr-2">✓</span> Custom Timeline</li>
+                    </ul>
+                    <button onclick="scrollToSection('contact')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-bold btn-animated">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 ocean-bg">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white">MEET OUR TEAM</h2>
+                <p class="text-blue-200 text-lg mb-8">Creative Professionals Dedicated to Your Success</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-6 rounded-xl border border-blue-500 hover-scale text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl animate-bounce">👨‍💻</div>
+                    <h3 class="text-white font-bold text-lg mb-2">Uthman - Lead Designer</h3>
+                    <p class="text-gray-400 text-sm mb-4">5+ years experience in graphic design and branding</p>
+                    <div class="flex justify-center space-x-2">
+                        <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm btn-animated">Connect</button>
+                        <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm btn-wiggle">Contact</button>
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-light p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="flex mr-4">
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star-half-alt rating-star"></i>
-                        </div>
-                        <span class="text-gray-600 text-sm">1 month ago</span>
-                    </div>
-                    <p class="text-gray-700 mb-6">"The website Designify created for our restaurant has significantly increased our online orders. The design is beautiful and user-friendly."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Adebayo" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark">Michael Adebayo</h4>
-                            <p class="text-gray-600 text-sm">Owner, Spice Garden</p>
-                        </div>
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500 hover-scale text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-teal-500 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl animate-pulse">👩‍💻</div>
+                    <h3 class="text-white font-bold text-lg mb-2">Sarah - Web Developer</h3>
+                    <p class="text-gray-400 text-sm mb-4">Expert in modern web technologies and responsive design</p>
+                    <div class="flex justify-center space-x-2">
+                        <button onclick="scrollToSection('contact')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm btn-wiggle">Connect</button>
+                        <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm btn-animated">Contact</button>
                     </div>
                 </div>
                 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-light p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="flex mr-4">
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                        </div>
-                        <span class="text-gray-600 text-sm">3 months ago</span>
-                    </div>
-                    <p class="text-gray-700 mb-6">"Working with Uthman was a pleasure. He understood exactly what we needed for our social media campaign and delivered beyond expectations."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Amina Yusuf" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark">Amina Yusuf</h4>
-                            <p class="text-gray-600 text-sm">Marketing Director, FashionHub</p>
-                        </div>
+                <div class="bg-gray-900 p-6 rounded-xl border border-purple-500 hover-scale text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl animate-spin" style="animation-duration: 4s;">🎨</div>
+                    <h3 class="text-white font-bold text-lg mb-2">Mike - Brand Strategist</h3>
+                    <p class="text-gray-400 text-sm mb-4">Specializes in brand identity and marketing strategies</p>
+                    <div class="flex justify-center space-x-2">
+                        <button onclick="scrollToSection('contact')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm btn-animated">Connect</button>
+                        <button onclick="scrollToSection('contact')" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm btn-wiggle">Contact</button>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-                <button id="add-review-btn" class="bg-secondary text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition duration-300">Add Your Review</button>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 ocean-depth">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Client Reviews</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-500 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Absolutely amazing work! The logo design exceeded my expectations. Very professional and quick delivery."</p>
+                    <p class="font-bold text-blue-400">- Chioma A.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
                 
-                <div id="review-form" class="hidden mt-8 max-w-2xl mx-auto bg-light p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-dark mb-6">Share Your Experience</h3>
-                    <form id="reviewForm">
-                        <div class="mb-6">
-                            <label for="review-name" class="block text-gray-700 mb-2">Your Name</label>
-                            <input type="text" id="review-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-400 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Best web developer in Lagos! Created a stunning website for my business. Highly recommended!"</p>
+                    <p class="font-bold text-blue-400">- Tunde O.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-300 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Outstanding service! The branding package was perfect for my startup. Will definitely work again."</p>
+                    <p class="font-bold text-blue-400">- Amaka N.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-500 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Very creative and professional. The social media designs boosted our engagement significantly!"</p>
+                    <p class="font-bold text-blue-400">- Ibrahim K.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-400 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Excellent communication and beautiful designs. My flyers look amazing! Thank you DESIGNIFYBYUTHMAN!"</p>
+                    <p class="font-bold text-blue-400">- Blessing M.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-300 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Top-notch quality! The website is fast, beautiful, and exactly what I wanted. 5 stars!"</p>
+                    <p class="font-bold text-blue-400">- Emeka J.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-500 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Professional, reliable, and talented. My business cards are stunning. Highly recommend!"</p>
+                    <p class="font-bold text-blue-400">- Fatima S.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-400 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Amazing experience from start to finish. The UI design is modern and user-friendly. Love it!"</p>
+                    <p class="font-bold text-blue-400">- David A.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-2xl shadow-lg border-2 border-blue-300 hover-scale">
+                    <div class="star-rating text-2xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 mb-4">"Best decision ever! The complete branding transformed my business. Thank you so much!"</p>
+                    <p class="font-bold text-blue-400">- Grace O.</p>
+                    <p class="text-sm text-gray-400">Lagos, Nigeria</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Complaints Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <form onsubmit="handleSubmit(event)" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-semibold">Your Name</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
                         </div>
-                        <div class="mb-6">
-                            <label for="review-role" class="block text-gray-700 mb-2">Your Role/Company</label>
-                            <input type="text" id="review-role" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        
+                        <div>
+                            <label for="email" class="block mb-2 font-semibold">Email Address</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
                         </div>
-                        <div class="mb-6">
-                            <label class="block text-gray-700 mb-2">Rating</label>
-                            <div class="flex space-x-2">
-                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="1"></i>
-                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="2"></i>
-                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="3"></i>
-                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="4"></i>
-                                <i class="far fa-star text-2xl cursor-pointer rating-star" data-rating="5"></i>
-                            </div>
-                            <input type="hidden" id="review-rating" value="0">
+                        
+                        <div>
+                            <label for="phone" class="block mb-2 font-semibold">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
                         </div>
-                        <div class="mb-6">
-                            <label for="review-text" class="block text-gray-700 mb-2">Your Review</label>
-                            <textarea id="review-text" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        
+                        <div>
+                            <label for="service" class="block mb-2 font-semibold">Service Needed</label>
+                            <select id="service" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                <option value="">Select a service</option>
+                                <option value="graphic">Graphic Design</option>
+                                <option value="web">Web Development</option>
+                                <option value="branding">Brand Identity</option>
+                                <option value="social">Social Media Design</option>
+                                <option value="print">Print Design</option>
+                                <option value="uiux">UI/UX Design</option>
+                                <option value="complaint">Complaint/Feedback</option>
+                            </select>
                         </div>
-                        <div class="flex justify-end">
-                            <button type="button" id="cancel-review" class="mr-4 px-4 py-2 text-gray-600 hover:text-gray-800">Cancel</button>
-                            <button type="submit" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Submit Review</button>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 font-semibold">Message / Complaint</label>
+                            <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
                         </div>
+                        
+                        <button type="submit" class="w-full bg-white text-purple-600 py-4 rounded-lg font-bold text-lg hover-scale shadow-lg">Send Message</button>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Section -->
-    <section id="order" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="md:flex">
-                    <div class="md:w-1/2 bg-primary p-8 text-white flex items-center">
-                        <div>
-                            <h2 class="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
-                            <p class="mb-6">Fill out the form and we'll get back to you within 24 hours to discuss your design needs.</p>
-                            <div class="flex items-center mb-4">
-                                <i class="fas fa-phone-alt mr-3"></i>
-                                <span>0912 667 2972</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope mr-3"></i>
-                                <span>designifybyuthman@gmail.com</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 p-8 order-form">
-                        <h3 class="text-2xl font-semibold text-dark mb-6">Place Your Order</h3>
-                        <form id="orderForm">
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="service" class="block text-gray-700 mb-2">Service Needed</label>
-                                <select id="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                                    <option value="">Select a service</option>
-                                    <option value="logo">Logo Design</option>
-                                    <option value="branding">Branding Package</option>
-                                    <option value="web">Website Design</option>
-                                    <option value="social">Social Media Design</option>
-                                    <option value="print">Print Design</option>
-                                    <option value="illustration">Illustration</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <label for="budget" class="block text-gray-700 mb-2">Budget Range</label>
-                                <select id="budget" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                                    <option value="">Select budget range</option>
-                                    <option value="10-50">₦10,000 -  ₦50,000</option>
-                                    <option value="50-100">₦50,000 -  ₦100,000</option>
-                                    <option value="100-200">₦100,000 -  ₦200,000</option>
-                                    <option value="200+">₦200,000+</option>
-                                </select>
-                            </div>
-                            <div class="mb-6">
-                                <label for="details" class="block text-gray-700 mb-2">Project Details</label>
-                                <textarea id="details" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Submit Order</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Get In Touch</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Have questions or want to discuss your project? Reach out to us through any of these channels.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Contact Method 1 -->
-                <div class="bg-light p-8 rounded-lg shadow-md text-center">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-phone-alt text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-dark mb-2">Call Us</h3>
-                    <p class="text-gray-600 mb-4">Available Monday to Friday, 9am to 5pm</p>
-                    <a href="tel:2349126672972" class="text-primary font-medium hover:underline">0912 667 2972</a>
-                </div>
-                
-                <!-- Contact Method 2 -->
-                <div class="bg-light p-8 rounded-lg shadow-md text-center">
-                    <div class="text-primary mb-4">
-                        <i class="fab fa-whatsapp text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-dark mb-2">WhatsApp</h3>
-                    <p class="text-gray-600 mb-4">Chat with us anytime</p>
-                    <a href="https://wa.me/2349126672972" target="_blank" class="text-primary font-medium hover:underline">+234 912 667 2972</a>
-                </div>
-                
-                <!-- Contact Method 3 -->
-                <div class="bg-light p-8 rounded-lg shadow-md text-center">
-                    <div class="text-primary mb-4">
-                        <i class="fas fa-envelope text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-dark mb-2">Email Us</h3>
-                    <p class="text-gray-600 mb-4">We'll respond within 24 hours</p>
-                    <a href="mailto:designifybyuthman@gmail.com" class="text-primary font-medium hover:underline">designifybyuthman@gmail.com</a>
-                </div>
-            </div>
-            
-            <div class="mt-16 max-w-4xl mx-auto">
-                <h3 class="text-2xl font-semibold text-dark mb-6 text-center">Visit Our Studio</h3>
-                <div class="bg-light p-6 rounded-lg shadow-md">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/2 mb-6 md:mb-0">
-                            <h4 class="text-lg font-medium text-dark mb-3">Designify By Uthman</h4>
-                            <p class="text-gray-600 mb-2">Lagos, Nigeria</p>
-                            <p class="text-gray-600">By appointment only</p>
-                        </div>
-                        <div class="md:w-1/2">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.585502144428!2d3.379295414266313!3d6.453326325540013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1629297217975!5m2!1sen!2sng" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
-                        </div>
+                    
+                    <div class="mt-8 text-center space-y-4">
+                        <p class="text-xl font-semibold">Or reach us directly:</p>
+                        <a href="https://wa.me/2349031565279" target="_blank" rel="noopener noreferrer" class="block bg-green-500 text-white py-3 px-6 rounded-lg font-semibold hover-scale shadow-lg">
+                            📱 WhatsApp: 09031565279
+                        </a>
+                        <p class="text-lg">📍 Lagos, Nigeria</p>
                     </div>
                 </div>
             </div>
@@ -600,181 +1120,133 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Designify<span class="text-secondary">ByUthman</span></h3>
-                    <p class="text-gray-400">Transforming visions into stunning visual realities through professional design services.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
-                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
-                        <li><a href="#order" class="text-gray-400 hover:text-white transition duration-300">Order Now</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Graphic Design</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Design</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Branding</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://wa.me/2349126672972" target="_blank" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                    <p class="text-gray-400">Email: designifybyuthman@gmail.com</p>
-                    <p class="text-gray-400">Phone: 0912 667 2972</p>
-                </div>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-4">DESIGNIFYBYUTHMAN</h3>
+            <p class="text-gray-400 mb-6">Professional Graphic Design & Web Development Services</p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <button onclick="scrollToSection('home')" class="hover:text-purple-400 transition">Home</button>
+                <button onclick="scrollToSection('services')" class="hover:text-purple-400 transition">Services</button>
+                <button onclick="scrollToSection('portfolio')" class="hover:text-purple-400 transition">Portfolio</button>
+                <button onclick="scrollToSection('reviews')" class="hover:text-purple-400 transition">Reviews</button>
+                <button onclick="scrollToSection('contact')" class="hover:text-purple-400 transition">Contact</button>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Designify By Uthman. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
-                </div>
-            </div>
+            <p class="text-gray-500">© 2024 DESIGNIFYBYUTHMAN. All rights reserved.</p>
+            <p class="text-gray-500 mt-2">📍 Based in Lagos, Nigeria | 📱 09031565279</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dark transition duration-300 hidden">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-check text-green-600 text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-dark mb-2">Thank You!</h3>
-                <p class="text-gray-600 mb-6" id="success-message">Your order has been submitted successfully. We'll contact you within 24 hours.</p>
-                <button id="close-modal" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Close</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Create scroll-based brand elements
+        function createScrollBrands() {
+            const brands = [
+                { text: 'DESIGNIFYBYUTHMAN', class: 'scroll-brand-1' },
+                { text: 'PROFESSIONAL DESIGN', class: 'scroll-brand-2' },
+                { text: '2025 STYLE', class: 'scroll-brand-3' }
+            ];
+            
+            brands.forEach((brand, index) => {
+                const element = document.createElement('div');
+                element.className = `scroll-brand ${brand.class}`;
+                element.textContent = brand.text;
+                element.style.top = `${20 + index * 30}%`;
+                element.style.left = '-100%';
+                document.body.appendChild(element);
+            });
+        }
+        
+        // Animate brands based on scroll
+        function animateScrollBrands() {
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            const brands = document.querySelectorAll('.scroll-brand');
+            
+            brands.forEach((brand, index) => {
+                const offset = scrollPercent * 120 - 20;
+                const rotation = scrollPercent * 360 * (index + 1);
+                const scale = 1 + scrollPercent * 0.5;
+                
+                brand.style.transform = `translateX(${offset}vw) rotate(${rotation}deg) scale(${scale})`;
+                brand.style.opacity = Math.sin(scrollPercent * Math.PI * 2) * 0.3 + 0.1;
+            });
+        }
+        
+        // Initialize scroll animations
+        window.addEventListener('load', () => {
+            createScrollBrands();
         });
-
-        // Back to top button
-        window.addEventListener('scroll', function() {
-            var backToTopButton = document.getElementById('back-to-top');
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
+        
+        window.addEventListener('scroll', () => {
+            animateScrollBrands();
+        });
+        
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
             }
-        });
-
-        document.getElementById('back-to-top').addEventListener('click', function() {
+        }
+        
+        function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Review form toggle
-        document.getElementById('add-review-btn').addEventListener('click', function() {
-            document.getElementById('review-form').classList.remove('hidden');
-            this.classList.add('hidden');
-        });
-
-        document.getElementById('cancel-review').addEventListener('click', function() {
-            document.getElementById('review-form').classList.add('hidden');
-            document.getElementById('add-review-btn').classList.remove('hidden');
-        });
-
-        // Star rating for review form
-        const stars = document.querySelectorAll('.rating-star[data-rating]');
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
-                document.getElementById('review-rating').value = rating;
-                
-                stars.forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.remove('far');
-                        s.classList.add('fas');
-                    } else {
-                        s.classList.remove('fas');
-                        s.classList.add('far');
-                    }
-                });
-            });
-        });
-
-        // Form submission
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would normally send the form data to your server
-            // For demo purposes, we'll just show a success message
-            document.getElementById('success-modal').classList.remove('hidden');
-        });
-
-        document.getElementById('reviewForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would normally send the review data to your server
-            // For demo purposes, we'll just show a success message and reset the form
-            document.getElementById('success-message').textContent = 'Thank you for your review! Your feedback helps us improve our services.';
-            document.getElementById('success-modal').classList.remove('hidden');
-            this.reset();
+        }
+        
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+        
+        function handleSubmit(event) {
+            event.preventDefault();
             
-            // Reset stars
-            stars.forEach(star => {
-                star.classList.remove('fas');
-                star.classList.add('far');
-            });
-            document.getElementById('review-rating').value = 0;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
             
-            // Hide review form after submission
-            document.getElementById('review-form').classList.add('hidden');
-            document.getElementById('add-review-btn').classList.remove('hidden');
-        });
-
-        // Close modal
-        document.getElementById('close-modal').addEventListener('click', function() {
-            document.getElementById('success-modal').classList.add('hidden');
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
-                        document.getElementById('mobile-menu').classList.add('hidden');
-                    }
+            const whatsappMessage = `Hello DESIGNIFYBYUTHMAN!%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+            
+            window.open(`https://wa.me/2349031565279?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
+            
+            document.querySelector('form').reset();
+            
+            const successMessage = document.createElement('div');
+            successMessage.className = 'mt-4 p-4 bg-green-500 text-white rounded-lg text-center';
+            successMessage.textContent = 'Message sent! Opening WhatsApp...';
+            document.querySelector('form').appendChild(successMessage);
+            
+            setTimeout(() => {
+                successMessage.remove();
+            }, 3000);
+        }
+        
+        function filterPortfolio(category) {
+            const items = document.querySelectorAll('.portfolio-item');
+            const filters = document.querySelectorAll('.portfolio-filter');
+            
+            // Update filter buttons
+            filters.forEach(filter => {
+                filter.classList.remove('bg-blue-600');
+                filter.classList.add('bg-gray-700', 'hover:bg-gray-600');
+            });
+            
+            event.target.classList.remove('bg-gray-700', 'hover:bg-gray-600');
+            event.target.classList.add('bg-blue-600');
+            
+            // Filter portfolio items
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.opacity = '0.3';
                 }
             });
-        });
+        }
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'995de16940499858',t:'MTc2MTY5MDY1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
